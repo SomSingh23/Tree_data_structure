@@ -1,0 +1,21 @@
+                               			Trees
+strictly binary tree
+if every non leaf has non empty left and right sub tree
+a sbt with n leaves will have 2n -1 nodes 
+
+level : n - 1 node
+depth : max level of any leaf in a tree (of any kind)
+
+
+complete binaary tree : 
+of depth d is strickly binary tree all of whose leaves are at level 'd' / left most possible 
+
+
+BALANCE BINARY TREE 	:
+ 
+Binary search tree :
+                      ->
+
+ 
+
+
