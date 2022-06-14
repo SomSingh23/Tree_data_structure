@@ -15,6 +15,16 @@ BALANCE BINARY TREE 	:
  
 Binary search tree :
                       ->
+tree transversal methods:
+-> pre order : (node , left , right)
+-> inorder : (left , node , right)
+-> post order : (left , right , node)
+
+aLL These methods are good for bst
+
+
+
+ 
 
  
 
