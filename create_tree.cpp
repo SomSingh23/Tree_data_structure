@@ -23,6 +23,8 @@ typedef vector<p32> vp32;
 #define fr(i,s) for(ll i = s; i >= 0; i--)
 #define frs(i,s,e) for(ll i = s; i >= e; i--)
 #define nl "\n"
+#define Y cout<<"YES"<<nl
+#define N cout<<"NO"<<nl
 #define dbg(x) cout<<#x<<" = "<<x<<nl
 #define mp make_pair
 #define pb push_back
@@ -71,7 +73,14 @@ if(k!=-1){
 }
 
 }
+void inorder_transversal(node *ptr){
+    if(ptr){
+        inorder_transversal(ptr->left_child);
+        cout<<ptr->data<<" ";
+        inorder_transversal(ptr->right_child);
+    }
 
+}
 void pre_order_transversal(node *ptr){
     
     if(ptr){
@@ -79,7 +88,7 @@ void pre_order_transversal(node *ptr){
         pre_order_transversal(ptr->left_child);
         pre_order_transversal(ptr->right_child);
     }
-    cout<<nl;
+ 
 }
 void iterative_preorder_transversal(node *ptr){
     stack<node *> stack;
@@ -100,6 +109,26 @@ void iterative_preorder_transversal(node *ptr){
       } 
     cout<<endl;
 }
+void iterative_inorder_transversal(node *ptr){
+    stack<node *> stack;
+ 
+      while(!stack.empty() or ptr != nullptr) {
+
+       if(ptr!=nullptr){
+          stack.push(ptr);
+            ptr=ptr->left_child;
+           
+        }
+        else {
+            ptr = stack.top();
+            stack.pop();
+              cout<<ptr->data<<" "; 
+            ptr=ptr->right_child;
+    
+        } 
+      } 
+    cout<<endl;
+}
 int main(){
         ios_base::sync_with_stdio(false);
         cin.tie(NULL);
@@ -108,5 +137,9 @@ int main(){
 pre_order_transversal(root);
 cout<<endl;
 iterative_preorder_transversal(root);
+cout<<nl;
+inorder_transversal(root); cout<<nl;
+iterative_inorder_transversal(root);
+
   return 0;}
 
