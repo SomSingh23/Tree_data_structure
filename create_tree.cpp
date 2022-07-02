@@ -32,13 +32,59 @@ typedef vector<p32> vp32;
 #define fast_cin() ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL)
 #define all(x) (x).begin(), (x).end()
 #define sz(x) ((ll)(x).size())
+node *root = new node ; // global variable
+void create_tree(){
+cout<<"Enter root value"<<endl;
+int x;cin>>x;
+queue<node*> queue;
+node *ptr = root;
+ptr->data = x;
+ptr->left_child=nullptr ;
+ptr->right_child=nullptr;
+queue.push(ptr);
+while (!queue.empty())
+{
+ptr = queue.front();
+queue.pop();
+cout<<"Enter value of left child for node "<<ptr->data<<endl;
+int k  ; cin>>k;
+if(k!=-1){
+    node *p = new node ;
+    p->data = k;
+    p->left_child = nullptr ;
+    p->right_child=nullptr;
+    ptr->left_child = p ;
+    queue.push(p);
 
+}
+cout<<"Enter value of right child for node "<<ptr->data<<endl;
+ cin>>k;
+if(k!=-1){
+    node *p = new node ;
+    p->data = k;
+    p->left_child = nullptr ;
+    p->right_child=nullptr;
+    ptr->right_child = p ;
+    queue.push(p);
+   
+}
+}
+
+}
+
+void pre_order_transversal(node *ptr){
+    
+    if(ptr){
+        cout<<ptr->data<<" ";
+        pre_order_transversal(ptr->left_child);
+        pre_order_transversal(ptr->right_child);
+    }
+}
 int main(){
         ios_base::sync_with_stdio(false);
         cin.tie(NULL);
         cout.tie(NULL);
-
-
-
-        return 0;}
+ create_tree();
+pre_order_transversal(root);
+  return 0;}
 
