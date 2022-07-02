@@ -111,3 +111,14 @@ void post_order_tranversal(node *ptr){
         cout<<ptr->data<<" ";
     }
 }
+void level_order_transversal(node *ptr){
+    queue<node *> queue;
+    queue.push(ptr);
+    while(!queue.empty()){
+      ptr = queue.front();
+      queue.pop();
+      cout<<ptr->data<<" ";
+      if(ptr->left_child!=nullptr)queue.push(ptr->left_child);
+      if(ptr->right_child!=nullptr)queue.push(ptr->right_child);
+    }
+}

@@ -49,6 +49,8 @@ inorder_transversal(root); cout<<nl;
 iterative_inorder_transversal(root);
 cout<<nl;
 post_order_tranversal(root);
+cout<<nl;
+level_order_transversal(root);
 
   return 0;}
 
