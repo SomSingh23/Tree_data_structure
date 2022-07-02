@@ -34,101 +34,8 @@ typedef vector<p32> vp32;
 #define fast_cin() ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL)
 #define all(x) (x).begin(), (x).end()
 #define sz(x) ((ll)(x).size())
-node *root = new node ; // global variable
-void create_tree(){
-cout<<"Enter root value"<<endl;
-int x;cin>>x;
-queue<node*> queue;
-node *ptr = root;
-ptr->data = x;
-ptr->left_child=nullptr ;
-ptr->right_child=nullptr;
-queue.push(ptr);
-while (!queue.empty())
-{
-ptr = queue.front();
-queue.pop();
-cout<<"Enter value of left child for node "<<ptr->data<<endl;
-int k  ; cin>>k;
-if(k!=-1){
-    node *p = new node ;
-    p->data = k;
-    p->left_child = nullptr ;
-    p->right_child=nullptr;
-    ptr->left_child = p ;
-    queue.push(p);
 
-}
-cout<<"Enter value of right child for node "<<ptr->data<<endl;
- cin>>k;
-if(k!=-1){
-    node *p = new node ;
-    p->data = k;
-    p->left_child = nullptr ;
-    p->right_child=nullptr;
-    ptr->right_child = p ;
-    queue.push(p);
-   
-}
-}
 
-}
-void inorder_transversal(node *ptr){
-    if(ptr){
-        inorder_transversal(ptr->left_child);
-        cout<<ptr->data<<" ";
-        inorder_transversal(ptr->right_child);
-    }
-
-}
-void pre_order_transversal(node *ptr){
-    
-    if(ptr){
-        cout<<ptr->data<<" ";
-        pre_order_transversal(ptr->left_child);
-        pre_order_transversal(ptr->right_child);
-    }
- 
-}
-void iterative_preorder_transversal(node *ptr){
-    stack<node *> stack;
- 
-      while(!stack.empty() or ptr != nullptr) {
-
-       if(ptr!=nullptr){
-            cout<<ptr->data<<" "; stack.push(ptr);
-            ptr=ptr->left_child;
-           
-        }
-        else {
-            ptr = stack.top();
-            stack.pop();
-            ptr=ptr->right_child;
-    
-        } 
-      } 
-    cout<<endl;
-}
-void iterative_inorder_transversal(node *ptr){
-    stack<node *> stack;
- 
-      while(!stack.empty() or ptr != nullptr) {
-
-       if(ptr!=nullptr){
-          stack.push(ptr);
-            ptr=ptr->left_child;
-           
-        }
-        else {
-            ptr = stack.top();
-            stack.pop();
-              cout<<ptr->data<<" "; 
-            ptr=ptr->right_child;
-    
-        } 
-      } 
-    cout<<endl;
-}
 int main(){
         ios_base::sync_with_stdio(false);
         cin.tie(NULL);
@@ -140,6 +47,8 @@ iterative_preorder_transversal(root);
 cout<<nl;
 inorder_transversal(root); cout<<nl;
 iterative_inorder_transversal(root);
+cout<<nl;
+post_order_tranversal(root);
 
   return 0;}
 
