@@ -79,6 +79,26 @@ void pre_order_transversal(node *ptr){
         pre_order_transversal(ptr->left_child);
         pre_order_transversal(ptr->right_child);
     }
+    cout<<nl;
+}
+void iterative_preorder_transversal(node *ptr){
+    stack<node *> stack;
+ 
+      while(!stack.empty() or ptr != nullptr) {
+
+       if(ptr!=nullptr){
+            cout<<ptr->data<<" "; stack.push(ptr);
+            ptr=ptr->left_child;
+           
+        }
+        else {
+            ptr = stack.top();
+            stack.pop();
+            ptr=ptr->right_child;
+    
+        } 
+      } 
+    cout<<endl;
 }
 int main(){
         ios_base::sync_with_stdio(false);
@@ -86,5 +106,7 @@ int main(){
         cout.tie(NULL);
  create_tree();
 pre_order_transversal(root);
+cout<<endl;
+iterative_preorder_transversal(root);
   return 0;}
 
