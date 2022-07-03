@@ -37,9 +37,7 @@ typedef vector<p32> vp32;
 
 
 int main(){
-        ios_base::sync_with_stdio(false);
-        cin.tie(NULL);
-        cout.tie(NULL);
+      fast_cin();
  create_tree();cout<<nl;cout<<nl;
  cout<<"********************************************************************************"<<nl;cout<<nl;
  cout<<"Pre order transversal "<<endl;
@@ -64,5 +62,9 @@ cout<<nl;
 number_of_nodes_iterative_version(root);
 cout<<"height of tree is "<<height_of_tree(root)<<endl;
 cout<<"Number of nodes "<<xf<<endl;
+number_of_leafs(root);
+number_of_node_with_deg_2(root);
+number_of_node_with_deg_1(root);
+number_of_node_with_deg_1_or_2(root);
   return 0;}
 

@@ -155,3 +155,55 @@ int height_of_tree(node *ptr){
     }
     return -1;
 }
+void number_of_leafs(node *ptr){
+    int ctr = 0;
+    queue<node *> queue;
+    queue.push(ptr);
+    while(!queue.empty()){
+      ptr = queue.front();
+      queue.pop();
+      if(ptr->left_child==nullptr and ptr->right_child==nullptr)ctr++;
+      if(ptr->left_child!=nullptr)queue.push(ptr->left_child);
+      if(ptr->right_child!=nullptr)queue.push(ptr->right_child);
+    }
+    cout<<"Number of leafs are :   "<<ctr<<endl;
+}
+void number_of_node_with_deg_2(node *ptr){
+    int ctr = 0;
+    queue<node *> queue;
+    queue.push(ptr);
+    while(!queue.empty()){
+      ptr = queue.front();
+      queue.pop();
+      if(ptr->left_child!=nullptr and ptr->right_child!=nullptr)ctr++;
+      if(ptr->left_child!=nullptr)queue.push(ptr->left_child);
+      if(ptr->right_child!=nullptr)queue.push(ptr->right_child);
+    }
+    cout<<"Number of nodes with deg 2 :   "<<ctr<<endl;
+}
+void number_of_node_with_deg_1(node *ptr){
+    int ctr = 0;
+    queue<node *> queue;
+    queue.push(ptr);
+    while(!queue.empty()){
+      ptr = queue.front();
+      queue.pop();
+      if(ptr->left_child!=nullptr ^ ptr->right_child!=nullptr)ctr++;
+      if(ptr->left_child!=nullptr)queue.push(ptr->left_child);
+      if(ptr->right_child!=nullptr)queue.push(ptr->right_child);
+    }
+    cout<<"Number of nodes with deg 1 :   "<<ctr<<endl;
+}
+void number_of_node_with_deg_1_or_2(node *ptr){
+    int ctr = 0;
+    queue<node *> queue;
+    queue.push(ptr);
+    while(!queue.empty()){
+      ptr = queue.front();
+      queue.pop();
+      if(ptr->left_child!=nullptr or ptr->right_child!=nullptr)ctr++;
+      if(ptr->left_child!=nullptr)queue.push(ptr->left_child);
+      if(ptr->right_child!=nullptr)queue.push(ptr->right_child);
+    }
+    cout<<"Number of nodes with deg 1 or 2  :   "<<ctr<<endl;
+}
