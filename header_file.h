@@ -122,3 +122,24 @@ void level_order_transversal(node *ptr){
       if(ptr->right_child!=nullptr)queue.push(ptr->right_child);
     }
 }
+int count_number_of_nodes(node *ptr){
+    int x , y ;if(ptr){
+x = count_number_of_nodes(ptr->left_child);
+y= count_number_of_nodes(ptr->right_child);
+return x+y+1;
+    }
+    return 0 ;
+}
+void number_of_nodes_iterative_version(node *ptr){
+    int ctr = 0;
+    queue<node *> queue;
+    queue.push(ptr);
+    while(!queue.empty()){ctr++;
+      ptr = queue.front();
+      queue.pop();
+    
+      if(ptr->left_child!=nullptr)queue.push(ptr->left_child);
+      if(ptr->right_child!=nullptr)queue.push(ptr->right_child);
+    }
+    cout<<"NO of nodes are "<<ctr<<endl;
+}

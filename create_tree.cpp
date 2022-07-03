@@ -51,6 +51,10 @@ cout<<nl;
 post_order_tranversal(root);
 cout<<nl;
 level_order_transversal(root);
+cout<<nl;
+cout<<"Number of node are "<<count_number_of_nodes(root);
+cout<<nl;
+number_of_nodes_iterative_version(root);
 
   return 0;}
 
