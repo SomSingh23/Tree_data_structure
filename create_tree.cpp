@@ -62,6 +62,7 @@ cout<<nl;
 cout<<"Number of node are "<<count_number_of_nodes(root);
 cout<<nl;
 number_of_nodes_iterative_version(root);
-
+cout<<"height of tree is "<<height_of_tree(root)<<endl;
+cout<<"Number of nodes "<<xf<<endl;
   return 0;}
 

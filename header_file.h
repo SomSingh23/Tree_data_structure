@@ -3,6 +3,7 @@
 #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,fma")
 #pragma GCC optimize("unroll-loops")
 using namespace std;
+static int xf ;
 class node {
     public :
     int data ;
@@ -10,7 +11,7 @@ class node {
     node * right_child ;
 };
 node *root = new node ; // global variable
-void create_tree(){
+void create_tree(){xf=1;
 cout<<"Enter root value"<<endl;
 int x;cin>>x;
 queue<node*> queue;
@@ -25,7 +26,7 @@ ptr = queue.front();
 queue.pop();
 cout<<"Enter value of left child for node "<<ptr->data<<endl;
 int k  ; cin>>k;
-if(k!=-1){
+if(k!=-1){xf++;
     node *p = new node ;
     p->data = k;
     p->left_child = nullptr ;
@@ -36,7 +37,7 @@ if(k!=-1){
 }
 cout<<"Enter value of right child for node "<<ptr->data<<endl;
  cin>>k;
-if(k!=-1){
+if(k!=-1){xf++;
     node *p = new node ;
     p->data = k;
     p->left_child = nullptr ;
@@ -142,4 +143,15 @@ void number_of_nodes_iterative_version(node *ptr){
       if(ptr->right_child!=nullptr)queue.push(ptr->right_child);
     }
     cout<<"NO of nodes are "<<ctr<<endl;
+}
+int height_of_tree(node *ptr){
+    /* it start counting height form level 0 */
+    int x , y;
+    if(ptr){
+        x=height_of_tree(ptr->left_child);
+        y = height_of_tree(ptr->right_child);
+        if(x>y)return x + 1;
+        else return y+1;
+    }
+    return -1;
 }
